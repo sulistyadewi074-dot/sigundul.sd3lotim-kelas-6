@@ -1,0 +1,10 @@
+{
+  "name": "SiGundul-3loloantimur",
+  "description": "Game edukasi interaktif IPAS Kelas 6: Gangguan Pernapasan pada Manusia berbasis QR Code untuk siswa SD.",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
