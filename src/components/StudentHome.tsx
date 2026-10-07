@@ -138,22 +138,36 @@ export const StudentHome: React.FC<Props> = ({
             className="w-full py-4 sm:py-5 bg-gradient-to-r from-amber-600 via-amber-700 to-amber-800 hover:from-amber-700 hover:to-amber-900 text-white font-black text-base sm:text-xl rounded-2xl sm:rounded-3xl shadow-xl hover:shadow-2xl transition-all active:scale-98 flex items-center justify-center gap-2.5 uppercase tracking-wide font-display border-2 border-yellow-300 cursor-pointer"
           >
             <Play className="w-5 h-5 sm:w-6 sm:h-6 fill-white shrink-0" />
-            <span>MULAI PETUALANGAN LITERASI</span>
+            <span>MULAI PETUALANGAN POS</span>
           </button>
-        ) : hasActiveSession && !hasFailedSession && onResumeSession ? (
-          <button
-            onClick={() => {
-              sounds.playClick();
-              if (!sounds.isBgmPlaying) {
-                sounds.startBgm();
-              }
-              onResumeSession();
-            }}
-            className="w-full py-4 sm:py-5 bg-gradient-to-r from-emerald-600 via-emerald-700 to-teal-800 hover:from-emerald-700 hover:to-teal-900 text-white font-black text-base sm:text-xl rounded-2xl sm:rounded-3xl shadow-xl hover:shadow-2xl transition-all active:scale-98 flex items-center justify-center gap-2.5 uppercase tracking-wide font-display border-2 border-emerald-300 cursor-pointer"
-          >
-            <Play className="w-5 h-5 sm:w-6 sm:h-6 fill-white shrink-0" />
-            <span>LANJUTKAN POS SAAT INI</span>
-          </button>
+        ) : hasActiveSession && !hasFailedSession ? (
+          <div className="space-y-2.5">
+            <button
+              onClick={() => {
+                sounds.playClick();
+                if (!sounds.isBgmPlaying) {
+                  sounds.startBgm();
+                }
+                if (onResumeSession) onResumeSession();
+              }}
+              className="w-full py-4 sm:py-4.5 bg-gradient-to-r from-emerald-600 via-emerald-700 to-teal-800 hover:from-emerald-700 hover:to-teal-900 text-white font-black text-base sm:text-lg rounded-2xl sm:rounded-3xl shadow-xl hover:shadow-2xl transition-all active:scale-98 flex items-center justify-center gap-2.5 uppercase tracking-wide font-display border-2 border-emerald-300 cursor-pointer"
+            >
+              <Play className="w-5 h-5 fill-white shrink-0" />
+              <span>LANJUTKAN POS SAAT INI</span>
+            </button>
+            <button
+              onClick={() => {
+                sounds.playClick();
+                if (!sounds.isBgmPlaying) {
+                  sounds.startBgm();
+                }
+                onStart();
+              }}
+              className="w-full py-3 bg-amber-50 hover:bg-amber-100 text-amber-900 border-2 border-amber-300 font-extrabold text-xs sm:text-sm rounded-2xl shadow-xs transition-all active:scale-98 flex items-center justify-center gap-2 uppercase tracking-wide cursor-pointer"
+            >
+              <span>MULAI BARU (ACAK RUTE POS LAIN)</span>
+            </button>
+          </div>
         ) : null}
 
         {/* 3-Column Quick Menu on both Smartphone and Desktop */}
@@ -196,10 +210,10 @@ export const StudentHome: React.FC<Props> = ({
       {/* Educational Topic Preview Banner */}
       <div className="bg-white/90 rounded-2xl p-3.5 sm:p-4 border border-amber-200 text-xs text-slate-600 space-y-1.5">
         <span className="font-extrabold text-amber-900 block uppercase text-[11px] sm:text-xs">
-          🫁 Materi 5 Pos Gangguan Pernapasan Manusia:
+          🫁 5 Lokasi Penyelidikan Gangguan Pernapasan:
         </span>
         <p className="text-[11px] sm:text-xs font-semibold text-slate-700 leading-relaxed">
-          <strong>Pos 1:</strong> Polusi &amp; Gas CO &bull; <strong>Pos 2:</strong> Virus Flu &amp; Bakteri TBC &bull; <strong>Pos 3:</strong> Racun Asap Rokok &bull; <strong>Pos 4:</strong> Alergi, Asma &amp; Emfisema &bull; <strong>Pos 5:</strong> Pencegahan &amp; Oksigen
+          <strong>Pos 1:</strong> Dapur &bull; <strong>Pos 2:</strong> Pohon Cempaka &bull; <strong>Pos 3:</strong> Tanaman Kangkung &bull; <strong>Pos 4:</strong> Pohon Jambu &bull; <strong>Pos 5:</strong> Ruang Kelas 6 (Final)
         </p>
       </div>
     </div>

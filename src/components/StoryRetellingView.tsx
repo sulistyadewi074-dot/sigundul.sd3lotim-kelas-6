@@ -55,9 +55,9 @@ export const StoryRetellingView: React.FC<StoryRetellingViewProps> = ({
     }
 
     const template =
-      `Di Pos 1 (Gudang Sekolah), kita menyelidiki faktor lingkungan seperti polusi udara akibat asap knalpot kendaraan, cerobong pabrik, debu pemicu ISPA, dan gas Karbon Monoksida (CO) yang berbahaya bagi darah.\n\n` +
-      `Di Pos 2 (Bawah Pohon Jambu) dan Pos 3 (Bawah Pohon Cempaka), gangguan pernapasan disebabkan oleh infeksi mikroorganisme patogen (virus influenza, bakteri Mycobacterium tuberculosis pemicu TBC, pneumonia paru basah, dan bronkitis) serta racun asap rokok (nikotin, tar, karbon monoksida) yang melumpuhkan silia dan mengancam perokok pasif.\n\n` +
-      `Di Pos 4 (Lorong Parkir) dan Pos 5 (Di Kelas), gangguan terjadi karena faktor alergi (asma pemicu dingin/debu dengan bunyi mengi), kerusakan alveolus (emfisema), serta kelainan fisik amandel dan polip. Kita dapat mencegahnya dengan memakai masker, berolahraga, ventilasi baik, vaksinasi BCG, dan menanam pohon penghasil oksigen.`;
+      `Di Pos 1 (Dapur), kita menyelidiki faktor lingkungan seperti polusi udara akibat asap pembakaran, asap kompor, debu pemicu ISPA, dan gas Karbon Monoksida (CO) yang berbahaya bagi darah.\n\n` +
+      `Di Pos 2 (Di Bawah Pohon Cempaka) dan Pos 3 (Tanaman Kangkung), gangguan pernapasan disebabkan oleh infeksi mikroorganisme patogen (virus influenza, bakteri Mycobacterium tuberculosis pemicu TBC, pneumonia paru basah, dan bronkitis) serta racun asap rokok (nikotin, tar, karbon monoksida) yang melumpuhkan silia dan mengancam perokok pasif.\n\n` +
+      `Di Pos 4 (Di Bawah Pohon Jambu) dan Pos 5 (Ruang Kelas 6), gangguan terjadi karena faktor alergi (asma pemicu dingin/debu dengan bunyi mengi), kerusakan alveolus (emfisema), serta kelainan fisik amandel dan polip. Kita dapat mencegahnya dengan memakai masker, berolahraga, ventilasi baik, vaksinasi BCG, dan menanam pohon penghasil oksigen.`;
     setText(template);
   };
 
@@ -86,7 +86,7 @@ export const StoryRetellingView: React.FC<StoryRetellingViewProps> = ({
       {/* Header Banner */}
       <div className="bg-gradient-to-r from-amber-600 via-amber-700 to-amber-800 rounded-3xl p-6 sm:p-8 text-white shadow-xl border-4 border-yellow-300 text-center relative overflow-hidden">
         <div className="inline-flex items-center gap-2 bg-yellow-400 text-amber-950 font-black px-4 py-1.5 rounded-full text-xs uppercase tracking-widest shadow-md mb-3">
-          <Sparkles className="w-4 h-4 text-amber-900" /> TUGAS AKHIR DI KELAS (POS 5)
+          <Sparkles className="w-4 h-4 text-amber-900" /> TUGAS AKHIR DI RUANG KELAS 6 (POS 5)
         </div>
         <h1 className="text-2xl sm:text-4xl font-black font-display tracking-tight text-yellow-100">
           Merangkum Penyebab Gangguan Pernapasan Manusia

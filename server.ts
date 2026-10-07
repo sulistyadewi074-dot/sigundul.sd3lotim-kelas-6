@@ -49,6 +49,7 @@ function toClientQuestion(q: Question): ClientQuestion {
     literacyCategory: q.literacyCategory,
     difficulty: q.difficulty,
     targetParagraph: q.targetParagraph,
+    imageUrl: q.imageUrl,
   };
 
   if (q.options && q.options.length > 0) {

@@ -137,6 +137,7 @@ export default function App() {
                 literacyCategory: q.literacyCategory,
                 difficulty: q.difficulty,
                 targetParagraph: q.targetParagraph,
+                imageUrl: q.imageUrl,
                 options: q.options,
               }));
             setCurrentStationQuestions(stationQ);

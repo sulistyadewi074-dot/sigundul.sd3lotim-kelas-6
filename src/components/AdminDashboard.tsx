@@ -34,6 +34,7 @@ import {
 import { generateQrDataUrl, downloadQrImage, printQrCards } from '../utils/qr';
 import { gameService } from '../services/gameService';
 import { sounds } from '../utils/audio';
+import { getQuestionImage } from '../utils/questionImages';
 
 interface Props {
   onBack: () => void;
@@ -419,6 +420,34 @@ export const AdminDashboard: React.FC<Props> = ({
                 {activeSession.failedReason ||
                   'Masukkan Kode Reset Guru di bawah ini untuk mereset aplikasi agar kelompok dapat mengulang permainan.'}
               </p>
+              {activeSession.route && (
+                <div className="text-[11px] font-semibold text-slate-800 bg-white/90 p-2 rounded-xl border border-amber-300 mt-1.5">
+                  <span className="font-bold text-amber-900 block mb-0.5">🧭 Urutan Rute Acak Kelompok Ini:</span>
+                  <div className="flex flex-wrap items-center gap-1">
+                    {activeSession.route.map((rId, rIdx) => {
+                      const loc = locations.find((l) => l.id === rId);
+                      const isPast = rIdx < activeSession.currentPosIndex;
+                      const isCur = rIdx === activeSession.currentPosIndex;
+                      return (
+                        <span
+                          key={rIdx}
+                          className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[10px] font-extrabold ${
+                            isPast
+                              ? 'bg-emerald-100 text-emerald-800'
+                              : isCur
+                              ? 'bg-amber-500 text-white shadow-xs'
+                              : rIdx === 4
+                              ? 'bg-yellow-200 text-yellow-900'
+                              : 'bg-slate-100 text-slate-600'
+                          }`}
+                        >
+                          {rIdx + 1}. {loc?.code || rId} ({loc?.name})
+                        </span>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
             </div>
           ) : (
             <p className="text-xs text-slate-600 text-left leading-relaxed">
@@ -1049,7 +1078,17 @@ export const AdminDashboard: React.FC<Props> = ({
                       key={q.id}
                       className="bg-white p-4 rounded-2xl border border-amber-200 shadow-xs flex flex-col sm:flex-row items-start justify-between gap-3"
                     >
-                      <div className="space-y-1.5 flex-1">
+                      {(() => {
+                        const imgUrl = getQuestionImage(q.id, q.imageUrl);
+                        return imgUrl ? (
+                          <img
+                            src={imgUrl}
+                            alt="Ilustrasi Soal"
+                            className="w-20 h-16 sm:w-24 sm:h-20 object-cover rounded-xl border border-amber-300 shrink-0 shadow-2xs"
+                          />
+                        ) : null;
+                      })()}
+                      <div className="space-y-1.5 flex-1 min-w-0">
                         <div className="flex flex-wrap items-center gap-2">
                           <span className="text-[10px] font-black uppercase bg-amber-100 text-amber-900 px-2 py-0.5 rounded-md">
                             {loc?.code || q.locationId}

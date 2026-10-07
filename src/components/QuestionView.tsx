@@ -3,6 +3,7 @@ import confetti from 'canvas-confetti';
 import { ClientQuestion, StoryChapter } from '../types/game';
 import { StoryReader } from './StoryReader';
 import { sounds } from '../utils/audio';
+import { getQuestionImage } from '../utils/questionImages';
 import {
   CheckCircle2,
   XCircle,
@@ -423,10 +424,36 @@ export const QuestionView: React.FC<Props> = ({
           </h4>
           <p className="text-xs text-slate-500">
             {hasOptions
-              ? 'Pilihlah satu jawaban yang paling tepat berdasarkan catatan di buku tulismu.'
+              ? 'Pilihlah satu jawaban yang paling tepat berdasarkan pengamatan gambar dan catatanmu.'
               : 'Ketikkan jawaban singkatmu pada kotak yang tersedia.'}
           </p>
         </div>
+
+        {/* Question Image (if provided) */}
+        {(() => {
+          const imgUrl = getQuestionImage(question.id, question.imageUrl);
+          if (!imgUrl) return null;
+          return (
+            <div className="relative rounded-2xl overflow-hidden border-2 border-amber-300 bg-amber-50/50 shadow-sm max-w-lg mx-auto group">
+              <div className="relative">
+                <img
+                  src={imgUrl}
+                  alt="Gambar Ilustrasi Soal IPAS"
+                  className="w-full h-48 sm:h-64 object-cover object-center transition-transform duration-300 group-hover:scale-102"
+                  loading="eager"
+                />
+                <div className="absolute top-2.5 right-2.5 bg-black/60 backdrop-blur-xs text-white text-[10px] font-bold px-2.5 py-1 rounded-lg flex items-center gap-1 shadow-sm">
+                  <span>🔬 Gambar Pengamatan Soal</span>
+                </div>
+              </div>
+              <div className="p-2 bg-amber-100/60 border-t border-amber-200 text-center">
+                <span className="text-[11px] font-bold text-amber-900">
+                  Amati gambar di atas dengan cermat untuk membantu menjawab soal!
+                </span>
+              </div>
+            </div>
+          );
+        })()}
 
         {/* Options or Text Input */}
         {hasOptions ? (

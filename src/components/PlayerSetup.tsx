@@ -196,10 +196,13 @@ export const PlayerSetup: React.FC<Props> = ({ onStartGame, onBack }) => {
         )}
 
         {/* Randomized Route Notice */}
-        <div className="p-3 bg-amber-50 rounded-2xl border border-amber-200 text-xs text-amber-900 flex items-start gap-2">
-          <span className="text-base leading-none">🧭</span>
-          <p className="leading-relaxed">
-            <strong>Rute Khusus:</strong> Urutan <strong>Pos 1 sampai Pos 4</strong> diacak otomatis di setiap perangkat agar tidak saling membuntuti, dan <strong>Pos 5</strong> ditetapkan sebagai tempat akhir!
+        <div className="p-3.5 bg-gradient-to-r from-amber-50 to-orange-50 rounded-2xl border-2 border-amber-300 text-xs text-amber-950 space-y-1 shadow-2xs">
+          <div className="flex items-center gap-1.5 font-black text-amber-900 text-xs uppercase tracking-wider">
+            <span>🧭</span> Aturan Urutan Pos Petualangan:
+          </div>
+          <p className="leading-relaxed text-[11px] sm:text-xs">
+            • <strong>Pos 1 s.d. Pos 4</strong> (<em>Dapur, Di bawah pohon cempaka, Tanaman kangkung, Di bawah pohon jambu</em>) diacak otomatis untuk setiap kelompok agar tidak saling membuntuti.<br />
+            • <strong>Pos 5</strong> (<em>Ruang kelas 6</em>) ditetapkan sebagai <strong>tempat akhir</strong> penyelidikan.
           </p>
         </div>
 

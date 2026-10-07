@@ -35,6 +35,7 @@ export interface Question {
   literacyCategory?: LiteracyQuestionType;
   difficulty: DifficultyLevel;
   targetParagraph?: number; // e.g. 2 for "Paragraf 2"
+  imageUrl?: string; // Optional illustrative image for the question
   options?: string[]; // for multiple choice
   correctAnswer: string; // for server/local validation
   explanation: string;
@@ -49,6 +50,7 @@ export interface ClientQuestion {
   literacyCategory?: LiteracyQuestionType;
   difficulty: DifficultyLevel;
   targetParagraph?: number;
+  imageUrl?: string;
   options?: string[];
 }
 

@@ -14,11 +14,11 @@ import {
   DEFAULT_QUESTIONS,
 } from '../data/defaultData';
 
-const LOCAL_SESSION_KEY = 'sigundul_pernapasan_v6_session';
-const LOCAL_SETTINGS_KEY = 'sigundul_pernapasan_v6_settings';
-const LOCAL_LOCATIONS_KEY = 'sigundul_pernapasan_v6_locations';
-const LOCAL_QUESTIONS_KEY = 'sigundul_pernapasan_v6_questions';
-const LOCAL_LEADERBOARD_KEY = 'sigundul_pernapasan_v6_leaderboard';
+const LOCAL_SESSION_KEY = 'sigundul_pernapasan_v8_session';
+const LOCAL_SETTINGS_KEY = 'sigundul_pernapasan_v8_settings';
+const LOCAL_LOCATIONS_KEY = 'sigundul_pernapasan_v8_locations';
+const LOCAL_QUESTIONS_KEY = 'sigundul_pernapasan_v8_questions';
+const LOCAL_LEADERBOARD_KEY = 'sigundul_pernapasan_v8_leaderboard';
 
 // Helper to shuffle array
 function shuffleArray<T>(array: T[]): T[] {
@@ -40,6 +40,7 @@ function toClientQuestion(q: Question): ClientQuestion {
     literacyCategory: q.literacyCategory,
     difficulty: q.difficulty,
     targetParagraph: q.targetParagraph,
+    imageUrl: q.imageUrl,
     options: q.options ? shuffleArray(q.options) : undefined,
   };
 }
